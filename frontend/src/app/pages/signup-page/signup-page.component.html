@@ -1,0 +1,39 @@
+<div class="centered-content">
+    <div class="white-box" style="box-shadow: 2px 0px 20px 1px #4e4e4e;">
+
+        <h1 class="title has-text-primary ">Sign up</h1>
+
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input #emailInput class="input has-background-light" type="email" placeholder="Email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+            </p>
+        </div>
+        <div *ngIf="invalidEmailText">
+            <p style="color: red">The email that you have provided is invalid!</p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input #passwordInput class="input has-background-light" type="password" placeholder="Password" (click)="onPasswordFieldClick(emailInput.value)">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </p>
+        </div>
+        <div *ngIf="invalidPasswordText">
+            <p style="color: red">The password must contain atleast 8 characters!</p>
+        </div>
+        <div class="field" style="display: flex; justify-content: flex-end;">
+            <p class="control">
+                <button class="button is-success has-text-white"
+                    (click)="onSignupButtonClicked(emailInput.value, passwordInput.value)">
+                    Sign up
+                </button>
+            </p>
+        </div>
+
+        <p class="has-text-grey">Already have an account? <a routerLink="/login">Login </a>now!</p>
+    </div>
+</div>
